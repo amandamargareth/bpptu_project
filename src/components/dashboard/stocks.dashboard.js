@@ -3,8 +3,8 @@ import Slide from "react-reveal";
 
 class About extends Component {
   render() {
-
     return (
+      <>
       <section id="stock">
         <Slide left duration={1300}>
           <div className="row education">
@@ -25,6 +25,8 @@ class About extends Component {
           </div>
         </Slide>
       </section>
+      </>
+      
     );
   }
 }
