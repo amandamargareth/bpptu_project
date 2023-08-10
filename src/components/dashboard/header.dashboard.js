@@ -12,7 +12,7 @@ class Header extends Component {
         <div className="row banner">
           <div className="banner-text">
             <Fade bottom>
-              <h1 className="responsive-headline">BPPT UNGGAS JATIWANGI</h1>
+              <h1>BPPT UNGGAS JATIWANGI</h1>
             </Fade>
             <Fade bottom duration={1200}>
               <h3>SISTEM INFORMASI PEMBELIAN DOC/DOD BPPTU</h3>
@@ -29,7 +29,7 @@ class Header extends Component {
         </div>
 
         <p className="scrolldown">
-          <a className="smoothscroll" href="#about">
+          <a className="smoothscroll" href="#stock">
             <i className="icon-down-circle"></i>
           </a>
         </p>

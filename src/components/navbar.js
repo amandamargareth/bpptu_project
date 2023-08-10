@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import {Link } from "react-router-dom";
 
 function Navbar(){
     return (
@@ -32,7 +32,7 @@ function Navbar(){
   
               <li>
               <Link to={"/admin"} className="navbar-brand text-white">
-                Admin
+                Login
              </Link>
               </li>
             </ul>

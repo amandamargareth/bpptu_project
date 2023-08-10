@@ -1,13 +1,14 @@
 import React, { Component } from "react";
+import { Container } from "react-bootstrap";
 import Slide from "react-reveal";
 
-class About extends Component {
+class Stock extends Component {
   render() {
     return (
       <>
       <section id="stock">
         <Slide left duration={1300}>
-          <div className="row education">
+          <Container>
             <div className="three columns header-col">
               <h1>
                 <span>Persediaan</span>
@@ -22,7 +23,7 @@ class About extends Component {
                 </div>
               </div>
             </div>
-          </div>
+          </Container>
         </Slide>
       </section>
       </>
@@ -31,4 +32,4 @@ class About extends Component {
   }
 }
 
-export default About;
+export default Stock;
