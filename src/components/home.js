@@ -13,13 +13,12 @@ class Home extends React.Component {
     render() {
       return (
         <>
-          <Navbar />
+        <Navbar />
           <main ref="main">
             <section className="header">
-              <Container>
                 <Header />
-              </Container>
             </section>
+            <hr />
             <section className="stock">
               <Container>
                 <Stock />

@@ -22,7 +22,10 @@
 /* a. General Styles
 /* ------------------------------------------------------------------ */
 
-body { background: #ECFDF1; }
+body {
+    background: #034517; 
+   
+   }
 
 /* ------------------------------------------------------------------ */
 /* b. Header Styles
@@ -30,8 +33,6 @@ body { background: #ECFDF1; }
 
 header {
    position: relative;
-   height: 100px;
-   min-height: 500px;
    width: 100%;
    
    text-align: center;
@@ -49,7 +50,7 @@ header .banner {
    display: inline-block;
    vertical-align: middle;
    margin: 0 auto;
-   width: 85%;
+   width: 100%;
    padding-bottom: 30px;
    text-align: center;
 }
@@ -60,6 +61,7 @@ header .banner-text h1 {
    color: #fff;
    letter-spacing: -2px;
    margin: 0 auto 18px auto;
+   
 }
 header .banner-text h3 {
    font: 18px/1.9em 'librebaskerville-regular', serif;
@@ -720,7 +722,7 @@ call-to-action .button {
 .flexslider .slides > li { position: relative; }
 
 /* Hide the slides before the JS is loaded. Avoids image jumping */
-.flexslider .slides > li { display: none; -webkit-backface-visibility: hidden; }
+.flexslider .slides > li { display: none;  }
 /* Suggested container for slide animation setups. Can replace this with your own */
 .flex-container { zoom: 1; position: relative; }
 
@@ -836,7 +838,6 @@ call-to-action .button {
    margin: 12px 0;
    color: #EBEEEE;
 	display: inline-block;
-	float: left;
    width: 26%;
 }
 #contact input,
