@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ParticlesBg from "particles-bg";
 import Fade from "react-reveal";
+import { Link } from 'react-router-dom'
 
 class Header extends Component {
   render() {
@@ -19,9 +20,9 @@ class Header extends Component {
             <hr />
             <Fade bottom duration={2000}>
               <ul className="social">
-                <a href="/product/create" className="button btn project-btn">
+                <Link to="/Pesanan/PesananForm" className="button btn project-btn">
                   <i className="fa fa-shopping-cart"></i>Pesan
-                </a>
+                </Link>
               </ul>
             </Fade>
           </div>
