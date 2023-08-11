@@ -6,7 +6,8 @@ import EditProduct from "./components/product/edit.component";
 import LoginForm from "./components/Login/LoginForm";
 import PesananForm from "./components/Pesanan/PesananForm";
 import Stock from "./components/dashboard/stocks.dashboard";
-import Home from "./components/home"
+import Home from "./components/home";
+import Contact from "./components/dashboard/contact";
 
 
 
@@ -19,6 +20,7 @@ function App() {
             <Route path="/product/edit/:id" element={<EditProduct />} />
             <Route exact path='/Login/LoginForm' element={<LoginForm />} />
             <Route path="/stock" element={<Stock />} />
+            <Route path="/dashboard/contact" element={<Contact />} />
             
            
           </Routes>

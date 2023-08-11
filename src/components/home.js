@@ -4,6 +4,9 @@ import Stock from "./dashboard/stocks.dashboard";
 import Navbar from "./navbar";
 import Header from "./dashboard/header.dashboard";
 
+
+
+
 class Home extends React.Component {
     componentDidMount() {
       document.documentElement.scrollTop = 0;
@@ -24,6 +27,8 @@ class Home extends React.Component {
                 <Stock />
               </Container>
             </section>
+      
+           
           </main>
         </>
       );
