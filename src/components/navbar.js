@@ -31,7 +31,7 @@ function Navbar(){
               </li>
   
               <li>
-              <Link to={"/admin"} className="navbar-brand text-white">
+              <Link to={"./Login/LoginForm"} className="navbar-brand text-white">
                 Login
              </Link>
               </li>
