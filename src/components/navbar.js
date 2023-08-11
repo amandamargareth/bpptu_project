@@ -20,12 +20,6 @@ function Navbar(){
   
               <li>
                 <a className="smoothscroll" href="#stock">
-                  Stock
-                </a>
-              </li>
-  
-              <li>
-                <a className="smoothscroll" href="#resume">
                   Waiting List
                 </a>
               </li>

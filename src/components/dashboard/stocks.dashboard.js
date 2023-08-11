@@ -9,7 +9,9 @@ class Stock extends Component {
       <section id="stock">
         <Slide left duration={1300}>
           <Container>
-            <div className="three columns header-col">
+          <div className="container mt-5">
+          <div className="card card-body">
+            <div className="three columns main-col">
               <h1>
                 <span>Persediaan</span>
               </h1>
@@ -23,7 +25,49 @@ class Stock extends Component {
                 </div>
               </div>
             </div>
+            </div>
+            </div>
           </Container>
+          <Container fluid='md'>
+
+        <div className="container mt-5" >
+                <div className="card card-body">
+                    <div className="table-responsive">
+                    <h1>Waiting List</h1>
+                        <table className="table table-bordered mb-0 text-center">
+                        <thead>
+            <tr>
+              <th>No</th>
+              <th>Tanggal</th>
+              <th>Nama</th>
+              <th>Username</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mark</td>
+              <td>Otto</td>
+              <td>@mdo</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td colSpan={2}>Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+                        </table>
+        </div>
+        </div>
+        </div>
+        </Container>
+
         </Slide>
       </section>
       </>
