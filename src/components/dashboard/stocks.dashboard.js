@@ -40,7 +40,9 @@ class Stock extends Component {
               <th>No</th>
               <th>Tanggal</th>
               <th>Nama</th>
-              <th>Username</th>
+              <th>Alamat</th>
+              <th>Jenis Pembelian</th>
+              <th>Total Pembelian</th>
             </tr>
           </thead>
           <tbody>
