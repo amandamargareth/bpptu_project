@@ -7,7 +7,7 @@ class Stock extends Component {
     return (
       <>
       <section id="stock">
-        <Slide left duration={1300}>
+        <Slide >
           <Container>
           <div className="container mt-5">
           <div className="card card-body">
