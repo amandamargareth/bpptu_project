@@ -1,5 +1,6 @@
 import React from 'react'
-import './PesananForm.css'
+import 'bootstrap'
+
 
 function PesananForm() {
     return (

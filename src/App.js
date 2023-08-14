@@ -10,6 +10,7 @@ import Home from "./components/home"
 import List from "./components/product/list.component";
 import OrderList from "./components/Pesanan/order.component";
 import CreateProduct from "./components/product/create.component";
+import EditForm from "./components/Pesanan/editform";
 
 
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/product/edit/:id" element={<EditProduct />} />
             <Route path="/product/list" element={<List />} />
             <Route path="/order/list" element={<OrderList />} />
+            <Route path="/order/edit" element={<EditForm />} />
             <Route path="/product/create" element={<CreateProduct />} />
             <Route exact path='/Login/LoginForm' element={<LoginForm />} />
             <Route path="/stock" element={<Stock />} />
