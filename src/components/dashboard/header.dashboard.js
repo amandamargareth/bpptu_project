@@ -20,7 +20,7 @@ class Header extends Component {
             <hr />
             <Fade bottom duration={2000}>
               <ul className="social">
-                <Link to="/Pesanan/PesananForm" className="button btn project-btn">
+                <Link to="./product/create" className="button btn project-btn">
                   <i className="fa fa-shopping-cart"></i>Pesan
                 </Link>
               </ul>

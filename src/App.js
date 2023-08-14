@@ -7,8 +7,9 @@ import LoginForm from "./components/Login/LoginForm";
 import PesananForm from "./components/Pesanan/PesananForm";
 import Stock from "./components/dashboard/stocks.dashboard";
 import Contact from "./components/dashboard/contact";
+import Footer from "./components/dashboard/footer.dashboard";
 
-import Home from "./components/home"
+import Home from "./components/home";
 import List from "./components/product/list.component";
 import OrderList from "./components/Pesanan/order.component";
 import CreateProduct from "./components/product/create.component";
@@ -29,6 +30,8 @@ function App() {
             <Route exact path='/Login/LoginForm' element={<LoginForm />} />
             <Route path="/stock" element={<Stock />} />
             <Route path="/dashboard/contact" element={<Contact />} />
+            <Route path="/dashboard/footer.dashboard" element={<Footer />} />
+            
             
            
           </Routes>

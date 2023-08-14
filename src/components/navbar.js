@@ -20,13 +20,12 @@ function Navbar(){
   
               <li>
                 <a className="smoothscroll" href="#stock">
-                  Stock
+                  Waiting List
                 </a>
               </li>
-  
               <li>
-                <a className="smoothscroll" href="#resume">
-                  Waiting List
+                <a className="smoothscroll" href="#contact">
+                  Contact
                 </a>
               </li>
   
@@ -36,11 +35,7 @@ function Navbar(){
              </Link>
               </li>
 
-              <li>
-                <a className="smoothscroll" href="#contact">
-                  Contact
-                </a>
-              </li>
+             
             </ul>
           </nav>
        
