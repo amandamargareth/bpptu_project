@@ -20,6 +20,12 @@ function Navbar(){
   
               <li>
                 <a className="smoothscroll" href="#stock">
+                  Stock
+                </a>
+              </li>
+  
+              <li>
+                <a className="smoothscroll" href="#resume">
                   Waiting List
                 </a>
               </li>
@@ -28,6 +34,12 @@ function Navbar(){
               <Link to={"./Login/LoginForm"} className="navbar-brand text-white">
                 Login
              </Link>
+              </li>
+
+              <li>
+                <a className="smoothscroll" href="#contact">
+                  Contact
+                </a>
               </li>
             </ul>
           </nav>
