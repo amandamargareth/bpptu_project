@@ -3,7 +3,7 @@ import { Container } from "react-bootstrap";
 import Stock from "./dashboard/stocks.dashboard";
 import Navbar from "./navbar";
 import Header from "./dashboard/header.dashboard";
-import Contact from "./dashboard/contact";
+import Contact from "./dashboard/contact.dashboard";
 import Footer from "./dashboard/footer.dashboard";
 
 

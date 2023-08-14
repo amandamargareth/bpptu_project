@@ -29,7 +29,7 @@ class Header extends Component {
         </div>
 
         <p className="scrolldown">
-          <a className="smoothscroll" href="#stock">
+          <a className="smoothscroll" href="#contact">
             <i className="icon-down-circle"></i>
           </a>
         </p>
