@@ -4,6 +4,7 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 
+
 export default function List() {
 
     const [orders, setOrders] = useState([])
@@ -50,10 +51,11 @@ export default function List() {
     }
 
     return (
+        
       <div className="container">
           <div className="row">
             <div className='col-12'>
-                <Link className='btn btn-primary mb-2 float-end' to={"/order/create"}>
+                <Link className='btn btn-primary mb-2 float-end' to={"/Pesanan/PesananForm"}>
                     Buat Pesanan
                 </Link>
             </div>
