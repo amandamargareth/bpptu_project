@@ -23,21 +23,14 @@ class Home extends React.Component {
             <section className="header">
                 <Header />
             </section>
-            <hr />
             <section className="stock">
-              <Container>
                 <Stock />
-              </Container>
             </section>
-            <section className="contact">
-              <Container>
+            <section className="contact">         
                 <Contact />
-              </Container>
             </section>
             <section className="footer">
-              <Container>
                 <Footer />
-              </Container>
             </section>
       
            
