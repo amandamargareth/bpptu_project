@@ -70,6 +70,7 @@ export default function List() {
                                     <th>No HP</th>
                                     <th>Jenis Pembelian</th>
                                     <th>Total Ekor</th>
+                                    <th>Tujuan Pembelian</th>
                                     <th>Status</th>
                                     <th>Action</th>
                                 </tr>
@@ -89,7 +90,7 @@ export default function List() {
                                                 <td>{row.to}</td>
                                                 <td>{row.status}</td>
                                                 <td>
-                                                    <Link to={`/product/edit/${row.id}`} className='btn btn-success me-2'>
+                                                    <Link to={`/order/edit/${row.id}`} className='btn btn-success me-2'>
                                                         Edit
                                                     </Link>
                                                     <Button variant="danger" onClick={()=>deleteOrder(row.id)}>
