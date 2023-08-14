@@ -19,7 +19,7 @@ export default function Stocks() {
     return (
       <>
       <section id="stock">
-        <Slide left duration={1300}>
+        <Slide >
           <Container>
           <div className="container mt-5">
           <div className="card card-body">

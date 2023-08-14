@@ -6,7 +6,7 @@ import EditProduct from "./components/product/edit.component";
 import LoginForm from "./components/Login/LoginForm";
 import PesananForm from "./components/Pesanan/PesananForm";
 import Stock from "./components/dashboard/stocks.dashboard";
-import Contact from "./components/dashboard/contact";
+import Contact from "./components/dashboard/contact.dashboard";
 import Footer from "./components/dashboard/footer.dashboard";
 
 import Home from "./components/home";
@@ -31,7 +31,7 @@ function App() {
             <Route path="/product/create" element={<CreateProduct />} />
             <Route exact path='/Login/LoginForm' element={<LoginForm />} />
             <Route path="/stock" element={<Stock />} />
-            <Route path="/dashboard/contact" element={<Contact />} />
+            <Route path="/dashboard/contact.dashboard" element={<Contact />} />
             <Route path="/dashboard/footer.dashboard" element={<Footer />} />
             
             

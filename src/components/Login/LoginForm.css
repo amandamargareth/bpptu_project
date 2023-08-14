@@ -1,12 +1,16 @@
 .wrapper {
+    
     height: 100vh;
+    background-image: linear-gradient(79deg, #dcf1df, #d0e9f4 48%, #e3f7df);
 }
 .login {
     width: 350px;
     padding: 20px;
     height: min-content;
-    border-radius: 5px;
+    border-radius: 10px;
     color:#0AD1BB ;
     background-image: linear-gradient(79deg, #f9f9e5, #fadefa 48%, #c6e1f7)
     
 }
+
+
