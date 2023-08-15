@@ -90,7 +90,7 @@ export default function List() {
                                                 <td>{row.variety}</td>
                                                 <td>{row.quantity}</td>
                                                 <td>{row.to}</td>
-                                                <td>{row.status}</td>
+                                                <td>{row.status} </td>
                                                 <td>
                                                     <Link to={`/order/edit/${row.id}`} className='btn btn-success me-2'>
                                                         Edit

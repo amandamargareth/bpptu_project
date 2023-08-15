@@ -28,7 +28,7 @@ export default function EditUser() {
     
     const fetchOrder = async () => {
     await axios.get(`http://localhost:8000/api/orders/${id}`).then(({data})=>{
-        const { name, address, city, phone, variety, quantity, to } = data.product
+        const { name, address, city, phone, variety, quantity, to, status } = data.order
         setName(name)
         setAddress(address)
         setCity(city)
@@ -104,147 +104,116 @@ export default function EditUser() {
                   )
                 }
                 <Form onSubmit={updateOrder}>
-                  <Row> 
-                      <Col>
-                        <Form.Group controlId="Nama">
-                            <Form.Label>Nama Pembeli</Form.Label>
-                            <Form.Control type="text" value={name} onChange={(event)=>{
-                              setName(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>  
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Alamat">
-                            <Form.Label>Alamat</Form.Label>
-                            <Form.Control as="textarea" rows={3} value={address} onChange={(event)=>{
-                              setAddress(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Alamat">
-                            <Form.Label>Kota/ Kabupaten</Form.Label>
-                            <Form.Select>
-                              <option>Pilih Kota/ Kabupaten</option>
-                              <option value="1">BOGOR</option>
-                              <option value="2">SUKABUMI</option>
-                              <option value="3">CIANJUR</option>
-                              <option value="4">BANDUNG</option>
-                              <option value="5">GARUT</option>
-                              <option value="6">TASIKMALAYA</option>
-                              <option value="7">CIAMIS</option>
-                              <option value="8">PANGANDARAN</option>
-                              <option value="9">KUNINGAN</option>
-                              <option value="10">CIREBON</option>
-                              <option value="11">MAJALENGKA</option>
-                              <option value="12">SUMEDANG</option>
-                              <option value="13">INDRAMAYU</option>
-                              <option value="14">SUBANG</option>
-                              <option value="15">PURWAKARTA</option>
-                              <option value="16">KARAWANG</option>
-                              <option value="17">BEKASI</option>
-                              <option value="18">BANDUNG BARAT</option>
-                              <option value="19">KOTA BOGOR</option>
-                              <option value="20">KOTA SUKABUMI</option>
-                              <option value="21">KOTA BANDUNG</option>
-                              <option value="22">KOTA CIREBON</option>
-                              <option value="23">KOTA BEKASI</option>
-                              <option value="24">KOTA DEPOK</option>
-                              <option value="25">KOTA CIMAHI</option>
-                              <option value="26">KOTA TASIKMALAYA</option>
-                              <option value="27">KOTA BANJAR</option>
-                            </Form.Select>
-                            <Form.Control value={city} onChange={(event)=>{
-                              setCity(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Nomor Hp">
-                            <Form.Label>Nomor HP</Form.Label>
-                            <Form.Control value={phone} onChange={(event)=>{
-                              setPhone(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Jenis Pembelian">
-                            <Form.Label>Jenis Pembelian</Form.Label>
-                            
-                            <Form.Select>
-                            <option>Pilih Jenis Pembelian</option>
-                              <option value="1">DOC Ayam Sentul</option>
-                              <option value="2">DOC Itik Rambon</option>
-                            </Form.Select>
-                            <Form.Control value={variety} onChange={(event)=>{
-                              setVariety(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Jumlah Pembelian">
-                            <Form.Label>Jumlah Pembelian</Form.Label>
-                            <Form.Control type="text" value={quantity} onChange={(event)=>{
-                              setQuantity(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Tujuan Pembelian">
-                            <Form.Label>Tujuan Pembelian</Form.Label>
-                            <Form.Select>
-                              <option>Pilih Tujuan Pembelian</option>
-                              <option value="1">Bibit</option>
-                              <option value="2">Potong</option>
-                            </Form.Select>
-                            <Form.Control value={to} onChange={(event)=>{
-                              setTo(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
-                  <Row className="my-3">
-                      <Col>
-                        <Form.Group controlId="Jumlah Pembelian">
-                            <Form.Label>Jumlah Pembelian</Form.Label>
-                            <Form>
-                              {['radio'].map((status) => (
-                                <div key={`inline-${status}`} className="mb-3">
-                                  <Form.Check
-                                    inline
-                                    label="Selesai"
-                                    name="group1"
-                                    type={status}
-                                    id={`inline-${status}-1`}
-                                  />
-                                  <Form.Check
-                                    inline
-                                    label="Belum Selesai"
-                                    name="group1"
-                                    type={status}
-                                    id={`inline-${status}-2`}
-                                  />
-                                </div>
-                              ))}
-                            </Form>
-                            <Form.Control value={status} onChange={(event)=>{
-                              setQuantity(event.target.value)
-                            }}/>
-                        </Form.Group>
-                      </Col>
-                  </Row>
+                <Row> 
+                  <Col>
+                    <Form.Group controlId="name">
+                        <Form.Label>Nama Pembeli</Form.Label>
+                        <Form.Control type="text" value={name} onChange={(event)=>{
+                          setName(event.target.value)
+                        }}/>
+                    </Form.Group>
+                  </Col>  
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="address">
+                        <Form.Label>Alamat</Form.Label>
+                        <Form.Control as="textarea" rows={3} value={address} onChange={(event)=>{
+                          setAddress(event.target.value)
+                        }}/>
+                    </Form.Group>
+                  </Col>
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="city">
+                        <Form.Label>Kota/ Kabupaten</Form.Label>
+                        <Form.Select type="select" value={city} onChange={(event)=>{
+                          setCity(event.target.value)
+                        }}>
+                        <option>Pilih Kota/Kabupaten</option>
+                        <option>BOGOR</option>
+                        <option>SUKABUMI</option>
+                        <option>CIANJUR</option>
+                        <option>BANDUNG</option>
+                        <option>GARUT</option>
+                        <option>TASIKMALAYA</option>
+                        <option>CIAMIS</option>
+                        <option>PANGANDARAN</option>
+                        <option>KUNINGAN</option>
+                        <option>CIREBON</option>
+                        <option>MAJALENGKA</option>
+                        <option>SUMEDANG</option>
+                        <option>INDRAMAYU</option>
+                        <option>SUBANG</option>
+                        <option>PURWAKARTA</option>
+                        <option>KARAWANG</option>
+                        <option>BEKASI</option>
+                        <option>BANDUNG BARAT</option>
+                        <option>KOTA BOGOR</option>
+                        <option>KOTA SUKABUMI</option>
+                        <option>KOTA BANDUNG</option>
+                        <option>KOTA CIREBON</option>
+                        <option>KOTA BEKASI</option>
+                        <option>KOTA DEPOK</option>
+                        <option>KOTA CIMAHI</option>
+                        <option>KOTA TASIKMALAYA</option>
+                        <option>KOTA BANJAR</option>
+                       </Form.Select>
+                    </Form.Group>
+                  </Col>
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="phone">
+                        <Form.Label>Nomor HP</Form.Label>
+                        <Form.Control type="text" value={phone} onChange={(event)=>{
+                          setPhone(event.target.value)
+                        }}/>
+                    </Form.Group>
+                  </Col>
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="variety">
+                        <Form.Label>Jenis Pembelian</Form.Label>
+                        
+                        <Form.Select type="select" value={variety} onChange={(event)=>{
+                          setVariety(event.target.value)
+                        }}>
+                        <option>Pilih Jenis Pembelian</option>
+                        <option>DOC Ayam Sentul</option>
+                        <option>DOD Itik Rambon</option>
+                        </Form.Select>
+                       
+                      
+                    </Form.Group>
+                  </Col>
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="quantity">
+                        <Form.Label>Jumlah Pembelian</Form.Label>
+                        <Form.Control type="text" value={quantity} onChange={(event)=>{
+                          setQuantity(event.target.value)
+                        }}/>
+                    </Form.Group>
+                  </Col>
+              </Row>
+              <Row className="my-3">
+                  <Col>
+                    <Form.Group controlId="to">
+                        <Form.Label>Tujuan Pembelian</Form.Label>
+                        <Form.Select type="select" value={to} onChange={(event)=>{
+                          setTo(event.target.value)
+                        }}>
+                          <option>Pilih Tujuan Pembelian</option>
+                          <option>Bibit</option>
+                          <option>Potong</option>
+                        </Form.Select>  
+                    </Form.Group>
+                  </Col>
+              </Row>
                   <Button variant="primary" className="mt-2" size="lg" block="block" type="submit">
                     Update
                   </Button>
