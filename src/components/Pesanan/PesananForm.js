@@ -17,7 +17,7 @@ export default function CreateOrder() {
     const [variety, setVariety] = useState("")
     const [quantity, setQuantity] = useState("")
     const [to, setTo] = useState("")
-    const [status, setStatus] = useState("")
+    const [status, setStatus] = useState("Belum Selesai")
     const [validationError,setValidationError] = useState({})
 
 
@@ -25,29 +25,29 @@ export default function CreateOrder() {
     e.preventDefault();
     const formData = new FormData()
         
-        formData.append('name', name)
-        formData.append('address', address)
-        formData.append('city', city)
-        formData.append('phone', phone)
-        formData.append('variety', variety)
-        formData.append('quantity', quantity)
-        formData.append('to', to)
-        formData.append('status', status)
+    formData.append('name', name)
+    formData.append('address', address)
+    formData.append('city', city)
+    formData.append('phone', phone)
+    formData.append('variety', variety)
+    formData.append('quantity', quantity)
+    formData.append('to', to)
+    formData.append('status', status)
     
-        await axios.post(`http://localhost:8000/api/orders`, formData).then(({data})=>{
-          Swal.fire({
-            icon:"success",
-            text:data.message
-          })
-          navigate("/order/list")
-        }).catch(({response})=>{
-          if(response.status===422){
-            setValidationError(response.data.errors)
-          }else{
-            Swal.fire({
-              text:response.data.message,
-              icon:"error"
-            })
+    await axios.post(`http://localhost:8000/api/orders`, formData).then(({data})=>{
+      Swal.fire({
+        icon:"success",
+        text:data.message
+      })
+      navigate("/order/list")
+    }).catch(({response})=>{
+      if(response.status===422){
+        setValidationError(response.data.errors)
+      }else{
+        Swal.fire({
+          text:response.data.message,
+          icon:"error"
+        })
         }
     })
   }
@@ -77,7 +77,7 @@ export default function CreateOrder() {
                 </div>
               )
             }
-            <Form onSubmit={CreateOrder}>
+            <Form onSubmit={createOrder}>
               <Row> 
                   <Col>
                     <Form.Group controlId="name">
@@ -102,38 +102,38 @@ export default function CreateOrder() {
                   <Col>
                     <Form.Group controlId="city">
                         <Form.Label>Kota/ Kabupaten</Form.Label>
-                        <Form.Select value={city} onChange={(event)=>{
+                        <Form.Select type="select" value={city} onChange={(event)=>{
                           setCity(event.target.value)
                         }}>
-                          <option>Pilih Kota/ Kabupaten</option>
-                          <option value="1">BOGOR</option>
-                          <option value="2">SUKABUMI</option>
-                          <option value="3">CIANJUR</option>
-                          <option value="4">BANDUNG</option>
-                          <option value="5">GARUT</option>
-                          <option value="6">TASIKMALAYA</option>
-                          <option value="7">CIAMIS</option>
-                          <option value="8">PANGANDARAN</option>
-                          <option value="9">KUNINGAN</option>
-                          <option value="10">CIREBON</option>
-                          <option value="11">MAJALENGKA</option>
-                          <option value="12">SUMEDANG</option>
-                          <option value="13">INDRAMAYU</option>
-                          <option value="14">SUBANG</option>
-                          <option value="15">PURWAKARTA</option>
-                          <option value="16">KARAWANG</option>
-                          <option value="17">BEKASI</option>
-                          <option value="18">BANDUNG BARAT</option>
-                          <option value="19">KOTA BOGOR</option>
-                          <option value="20">KOTA SUKABUMI</option>
-                          <option value="21">KOTA BANDUNG</option>
-                          <option value="22">KOTA CIREBON</option>
-                          <option value="23">KOTA BEKASI</option>
-                          <option value="24">KOTA DEPOK</option>
-                          <option value="25">KOTA CIMAHI</option>
-                          <option value="26">KOTA TASIKMALAYA</option>
-                          <option value="27">KOTA BANJAR</option>
-                        </Form.Select>
+                        <option>Pilih Kota/Kabupaten</option>
+                        <option>BOGOR</option>
+                        <option>SUKABUMI</option>
+                        <option>CIANJUR</option>
+                        <option>BANDUNG</option>
+                        <option>GARUT</option>
+                        <option>TASIKMALAYA</option>
+                        <option>CIAMIS</option>
+                        <option>PANGANDARAN</option>
+                        <option>KUNINGAN</option>
+                        <option>CIREBON</option>
+                        <option>MAJALENGKA</option>
+                        <option>SUMEDANG</option>
+                        <option>INDRAMAYU</option>
+                        <option>SUBANG</option>
+                        <option>PURWAKARTA</option>
+                        <option>KARAWANG</option>
+                        <option>BEKASI</option>
+                        <option>BANDUNG BARAT</option>
+                        <option>KOTA BOGOR</option>
+                        <option>KOTA SUKABUMI</option>
+                        <option>KOTA BANDUNG</option>
+                        <option>KOTA CIREBON</option>
+                        <option>KOTA BEKASI</option>
+                        <option>KOTA DEPOK</option>
+                        <option>KOTA CIMAHI</option>
+                        <option>KOTA TASIKMALAYA</option>
+                        <option>KOTA BANJAR</option>
+                       </Form.Select>
                     </Form.Group>
                   </Col>
               </Row>
@@ -141,7 +141,7 @@ export default function CreateOrder() {
                   <Col>
                     <Form.Group controlId="phone">
                         <Form.Label>Nomor HP</Form.Label>
-                        <Form.Control value={phone} onChange={(event)=>{
+                        <Form.Control type="text" value={phone} onChange={(event)=>{
                           setPhone(event.target.value)
                         }}/>
                     </Form.Group>
@@ -152,14 +152,15 @@ export default function CreateOrder() {
                     <Form.Group controlId="variety">
                         <Form.Label>Jenis Pembelian</Form.Label>
                         
-                        <Form.Select value={variety} onChange={(event)=>{
+                        <Form.Select type="select" value={variety} onChange={(event)=>{
                           setVariety(event.target.value)
                         }}>
                         <option>Pilih Jenis Pembelian</option>
-                          <option value="1">DOC Ayam Sentul</option>
-                          <option value="2">DOC Itik Rambon</option>
+                        <option>DOC Ayam Sentul</option>
+                        <option>DOD Itik Rambon</option>
                         </Form.Select>
                        
+                      
                     </Form.Group>
                   </Col>
               </Row>
@@ -177,47 +178,17 @@ export default function CreateOrder() {
                   <Col>
                     <Form.Group controlId="to">
                         <Form.Label>Tujuan Pembelian</Form.Label>
-                        <Form.Select value={to} onChange={(event)=>{
+                        <Form.Select type="select" value={to} onChange={(event)=>{
                           setTo(event.target.value)
                         }}>
                           <option>Pilih Tujuan Pembelian</option>
-                          <option value="1">Bibit</option>
-                          <option value="2">Potong</option>
-                        </Form.Select>
+                          <option>Bibit</option>
+                          <option>Potong</option>
+                        </Form.Select>  
                     </Form.Group>
                   </Col>
               </Row>
-              <Row className="my-3">
-                  <Col>
-                    <Form.Group controlId="status">
-                        <Form.Label>Status</Form.Label>
-                          {['radio'].map((status) => (
-                            <div key={`inline-${status}`} className="mb-3">
-                              <Form.Check
-                                inline
-                                label="Selesai"
-                                name="group1"
-                                type={status}
-                                id={`inline-${status}-1`} 
-                                value={status} onChange={(event)=>{
-                                    setStatus(event.target.value)
-                                  }}
-                              />
-                              <Form.Check
-                                inline
-                                label="Belum Selesai"
-                                name="group1"
-                                type={status}
-                                id={`inline-${status}-2`} 
-                                value={status} onChange={(event)=>{
-                                    setStatus(event.target.value)
-                                  }}
-                              />
-                            </div>
-                          ))}
-                    </Form.Group>
-                  </Col>
-              </Row>
+                   
               <Button variant="primary" className="mt-2" size="lg" block="block" type="submit">
                Save
               </Button>

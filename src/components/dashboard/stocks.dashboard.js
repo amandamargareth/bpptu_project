@@ -55,7 +55,7 @@ export default function Stocks() {
             </Col>
             </Row>
             <Row>
-              <hr />
+              <br />
             </Row>
             <Row>
               <Col>
