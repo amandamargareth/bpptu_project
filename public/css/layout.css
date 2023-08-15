@@ -597,7 +597,7 @@ call-to-action .button {
 #contact .section-head { margin-bottom: 42px; }
 
 #contact a, #contact a:visited  { color: #0762f9; }
-#contact a:hover, #contact a:focus { color: #fff; }
+#contact a:hover, #contact a:focus { color: #f7eded; }
 
 #contact h1 {
    font: 18px/24px 'opensans-bold', sans-serif;
@@ -615,7 +615,7 @@ call-to-action .button {
    line-height: 72px;
    text-align: left;
    float: left;
-   color: #ebeeee;
+   color: #a0e2e2;
 }
 
 #contact h4 {
@@ -635,7 +635,7 @@ call-to-action .button {
 #contact label {
    font: 15px/24px 'opensans-bold', sans-serif;
    margin: 12px 0;
-   color: #EBEEEE;
+   color: #2a2c2c;
 	display: inline-block;
    width: 26%;
 }
@@ -656,7 +656,7 @@ call-to-action .button {
 #contact textarea:focus,
 #contact select:focus {
 	color: #fff;
-	background-color: #0762f9;
+	background-color: #8a8c91;
 }
 #contact button.submit {
 	text-transform: uppercase;
@@ -672,7 +672,7 @@ call-to-action .button {
 }
 #contact button.submit:hover {
 	color: #0D0D0D;
-	background: #fff;
+	background: #A1DBF1;
 }
 #contact span.required {
 	color: #0762f9;
