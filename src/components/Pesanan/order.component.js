@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
+import Navbar from '../admin/navbar.admin';
 
 
 export default function List() {
@@ -51,15 +52,12 @@ export default function List() {
     }
 
     return (
-        
+        <>
+    <Navbar />
+    <br />
       <div className="container">
           <div className="row">
-            <div className='col-12'>
-                <Link className='btn btn-primary mb-2 float-end' to={"/Pesanan/PesananForm"}>
-                    Buat Pesanan
-                </Link>
-            </div>
-            <div className="col-12">
+            <div className="col-9">
                 <div className="card card-body">
                     <div className="table-responsive">
                         <table className="table table-bordered mb-0 text-center">
@@ -110,5 +108,6 @@ export default function List() {
             </div>
           </div>
       </div>
+      </>
     )
 }
