@@ -8,6 +8,7 @@ import Navbar from '../admin/navbar.admin';
 
 export default function List() {
 
+    
     const [orders, setOrders] = useState([])
 
     useEffect(()=>{
@@ -51,6 +52,10 @@ export default function List() {
           })
     }
 
+    
+   
+
+
     return (
         <>
     <Navbar />
@@ -61,7 +66,7 @@ export default function List() {
                 <div className="card card-body">
                     <div className="table-responsive">
                         <table className="table table-bordered mb-0 text-center">
-                            <thead>
+                            <thead className='position: sticky; top: 0; z-index: 1;'>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pembeli</th>
@@ -75,7 +80,7 @@ export default function List() {
                                     <th>Action</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody className='height: 10px !important; overflow: scroll;'>
                                 {
                                     orders.length > 0 && (
                                         orders.map((row, key)=>(
