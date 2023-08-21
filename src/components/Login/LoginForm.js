@@ -16,7 +16,7 @@ function LoginForm() {
 
     useEffect(() => {
         if(localStorage.getItem('token')) {
-            navigate('/Login/LoginForm');
+            navigate('/login');
         }
     }, []);
 

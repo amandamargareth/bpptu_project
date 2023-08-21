@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import Slide from "react-reveal";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
-export default function Stocks() {
+function Stocks() {
     const [orders, setOrders] = useState([])
 
     useEffect(()=>{
@@ -16,18 +15,14 @@ export default function Stocks() {
             setOrders(data)
         })
     }
-   
-    
-
     return (
       <>
-      <section id="stock">
-        <Slide >
+      <section className="stock" id="stock">
           <Container>
           <div className="container mt-5">
           <div className="card card-body">
             <Row className="justify-content-md-center">
-              <Col xs lg="2">
+              <Col xs lg="4">
                   <h1>
                     <span>Persediaan</span>
                   </h1>
@@ -78,9 +73,9 @@ export default function Stocks() {
                             <tbody>
                                 {
                                     orders.length > 0 && (
-                                        orders.map((row, key)=>(
+                                        orders.map((row, key, index)=>(
                                             <tr key={key}>
-                                                <td>{row.id}</td>
+                                                <td>{ index + 1 }</td>
                                                 <td>{row.name}</td>
                                                 <td>{row.variety}</td>
                                                 <td>{row.quantity}</td>
@@ -101,12 +96,10 @@ export default function Stocks() {
         </div>
         </div>
         </Container>
-
-        </Slide>
       </section>
       </>
       
     );
   }
-
+export default Stocks;
 
