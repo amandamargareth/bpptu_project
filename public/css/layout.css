@@ -589,7 +589,7 @@ call-to-action .button {
 /* ------------------------------------------------------------------ */
 
 #contact {
-   background: #d2f4cb;
+   background: #dcf8d6;
    padding-top: 96px;
    padding-bottom: 102px;
    color: #636363;
@@ -600,10 +600,11 @@ call-to-action .button {
 #contact a:hover, #contact a:focus { color: #f7eded; }
 
 #contact h1 {
-   font: 18px/24px 'opensans-bold', sans-serif;
+   text-align: center;
+   font: 18px/24px 'opensans-bold';
    text-transform: uppercase;
    letter-spacing: 3px;
-   color: #EBEEEE;
+   color: #232425;
    margin-bottom: 6px;
 }
 #contact h1 span { display: none; }
@@ -615,7 +616,7 @@ call-to-action .button {
    line-height: 72px;
    text-align: left;
    float: left;
-   color: #a0e2e2;
+   color: #313e3e;
 }
 
 #contact h4 {
@@ -642,7 +643,7 @@ call-to-action .button {
 #contact input,
 #contact textarea,
 #contact select {
-   padding: 10px 20px;
+   padding: 7px 15px;
 	color: #eee;
 	background: #373233;
 	margin-bottom: 42px;
@@ -650,7 +651,7 @@ call-to-action .button {
 	outline: none;
    font-size: 15px;
    line-height: 24px;
-   width: 65%;
+   width: 47%;
 }
 #contact input:focus,
 #contact textarea:focus,

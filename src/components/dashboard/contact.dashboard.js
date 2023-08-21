@@ -9,7 +9,7 @@ const Contact = () => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs.sendForm('service_p0jvmjq', 'template_kswwsqm', form.current, 'TKXCdCht69vR_Q5_i')
+    emailjs.sendForm('service_h55xidl', 'template_b14q5gc', form.current, 'NNQKLwBbAIMKZYNiV')
       .then((result) => {
           console.log(result.text);
       }, (error) => {
@@ -21,12 +21,11 @@ const Contact = () => {
       <>
       <section id="contact">
         <Container>
-      <Slide left duration={1300}>
         <Fade bottom duration={1000}>
           <div className="row section-head">
             <div className="two columns header-col">
               <h1>
-                <span>Get In Touch</span>
+                Hubungi Kami
               </h1>
             </div>
 
@@ -35,24 +34,27 @@ const Contact = () => {
             </div>
           </div>
         </Fade>
-        </Slide>
 
-                
-                <form ref={form} onSubmit={sendEmail} name="contactForm">
-                    <fieldset>
-                    <div>
+        <div className="row">
+          <Slide left duration={1000}>
+            <div className="eight columns">
+            <form ref={form} onSubmit={sendEmail} name="contactForm">
+                <fieldset>
+                  <div>
                     <label htmlFor="contactName">
-                      Name <span className="required">*</span>
+                      Nama <span className="required">*</span>
                     </label>
                     <input
                       type="text"
                       defaultValue=""
                       size="35"
                       id="contactName"
-                      name="contactName"/>
-                  
-                    </div>
-                    <div>
+                      name="contactName"
+                      
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="contactEmail">
                       Email <span className="required">*</span>
                     </label>
@@ -61,42 +63,81 @@ const Contact = () => {
                       defaultValue=""
                       size="35"
                       id="contactEmail"
-                      name="contactEmail"/>
-                      </div>
-                    <div>
-                    <label htmlFor="contactSubject">Subject</label>
+                      name="contactEmail"
+                      
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="contactSubject">Subjek</label>
                     <input
                       type="text"
                       defaultValue=""
                       size="35"
                       id="contactSubject"
-                      name="contactSubject"/>
-                      </div>
-                      <div>
+                      name="contactSubject"
+                      
+                    />
+                  </div>
+
+                  <div>
                     <label htmlFor="contactMessage">
-                      Message <span className="required">*</span>
+                      Pesan <span className="required">*</span>
                     </label>
                     <textarea
-                      cols="40"
-                      rows="12"
+                      cols="350"
+                      rows="15"
                       id="contactMessage"
                       name="contactMessage"
                     ></textarea>
-                    </div>
-                    <div>
+                  </div>
+
+                  <div>
                     <button className="submit">Submit</button>
                     <span id="image-loader">
                       <img alt="" src="images/loader.gif" />
                     </span>
                   </div>
-                  </fieldset>
+                </fieldset>
               </form>
+
               <div id="message-warning"> Error boy</div>
               <div id="message-success">
                 <i className="fa fa-check"></i>Your message was sent, thank you!
                 <br />
-              </div>      
-    </Container>
+              </div>
+            </div>
+          </Slide>
+
+          <Slide right duration={1000}>
+            <aside className="four columns footer-widgets">
+              <div className="widget widget_contact">
+                <h4>Address and Phone</h4>
+                <p className="address">
+                  
+                </p>
+              </div>
+
+              <div className="widget widget_tweets">
+                <h4 className="fa fa-map-marker">Latest Tweets</h4>
+                <ul id="twitter">
+                <li>
+                <a href="https://goo.gl/maps/fZgCqqbWj9p6KRnF6" className="button btn project-btn">
+                  <i className="fa fa-map-marker"> Jl. Kawaluyaan Indah Raya No.6 Bandung. </i>
+                  </a>
+                  </li>
+                    
+                  <li>
+                  <a href="https://goo.gl/maps/fZgCqqbWj9p6KRnF6" className="button btn project-btn">
+                  <i className="fa fa-phone"> 022-87327711 </i>
+                  </a>
+                  </li>
+                </ul>
+              </div>
+            </aside>
+          </Slide>
+        </div>
+        </Container>
       </section>
       </>
       
