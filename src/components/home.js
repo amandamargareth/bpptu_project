@@ -1,10 +1,10 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import Stock from "./dashboard/stocks.dashboard";
-import Navbar from "./navbar";
-import Header from "./dashboard/header.dashboard";
-import Contact from "./dashboard/contact.dashboard";
-import Footer from "./dashboard/footer.dashboard";
+import Stock from "../landingpage/Stock";
+import NavBar from "../landingpage/NavBar";
+import Banner from "../landingpage/Banner";
+import Contact from "../landingpage/Contact";
+import Footer from "../landingpage/Footer";
+import "../App.css"
 
 
 
@@ -18,10 +18,10 @@ class Home extends React.Component {
     render() {
       return (
         <>
-        <Navbar />
+        <NavBar />
           <main ref="main">
             <section className="header">
-                <Header />
+                <Banner />
             </section>
             <section className="stock">
                 <Stock />
