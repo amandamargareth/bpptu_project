@@ -21,6 +21,7 @@ import "./App.css"
 
 
 
+
 function App() {
   return (<Router>
           <Routes>
@@ -36,6 +37,7 @@ function App() {
             <Route path="/stock" element={<Stock />} />
             <Route path="/dashboard/contact.dashboard" element={<Contact />} />
             <Route path="/dashboard/footer.dashboard" element={<Footer />} />
+            
             
             
            

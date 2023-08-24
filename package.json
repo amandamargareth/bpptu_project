@@ -18,14 +18,22 @@
     "datatables.net": "^1.13.6",
     "datatables.net-dt": "^1.13.6",
     "dom": "^0.0.3",
+<<<<<<< HEAD
+    "leaflet": "^1.9.4",
+=======
     "jquery": "^3.7.0",
+>>>>>>> d33541eb197710f0d97555f63587ea17b06e63fd
     "particles-bg": "^2.5.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
     "react-bootstrap-icons": "^1.10.3",
     "react-data-table-component": "^7.5.3",
     "react-dom": "^18.2.0",
+<<<<<<< HEAD
+    "react-leaflet": "^4.2.1",
+=======
     "react-on-screen": "^2.1.1",
+>>>>>>> d33541eb197710f0d97555f63587ea17b06e63fd
     "react-reveal": "^1.2.2",
     "react-router": "^6.14.2",
     "react-router-dom": "^6.14.2",
