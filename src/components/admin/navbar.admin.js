@@ -1,24 +1,49 @@
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Button from 'react-bootstrap/Button';
-import Col from 'react-bootstrap/Col';
+import { useState, useEffect } from "react";
+import { Navbar, Nav, Container } from "react-bootstrap";
+import { HashLink } from 'react-router-hash-link';
 
-function TextLinkExample() {
+function NavBar(){
+
+  const [activeLink, setActiveLink] = useState('home');
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => {
+      if (window.scrollY > 50) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    }
+
+    window.addEventListener("scroll", onScroll);
+
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [])
+
+  const onUpdateActiveLink = (value) => {
+    setActiveLink(value);
+  }
+
   return (
-    <Navbar className="bg-body-tertiary">
-      <Container>
-      <Navbar.Brand href="#home">
+      <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
+        <Container>
+          <Navbar.Brand href="/">
             BPPT UNGGAS JATIWANGI
           </Navbar.Brand>
-        <Navbar.Toggle />
-        <Navbar.Collapse className="justify-content-end">
-            <Col xs="auto">
-            <Button type="submit" variant="danger">LOGOUT</Button>
-          </Col>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
-  );
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
+            <span className="navbar-toggler-icon"></span>
+          </Navbar.Toggle>
+          <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+              </Nav>
+            <span className="navbar-text">
+                <button className="vvd"><span>LOGOUT</span></button>
+            </span>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
+  )
 }
 
-export default TextLinkExample;
+export default NavBar;

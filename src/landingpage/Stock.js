@@ -73,9 +73,9 @@ function Stocks() {
                             <tbody>
                                 {
                                     orders.length > 0 && (
-                                        orders.map((row, key, index)=>(
-                                            <tr key={key}>
-                                                <td>{ index + 1 }</td>
+                                        orders.map((row, index)=>(
+                                            <tr key={index}>
+                                                <td>{index+1}</td>
                                                 <td>{row.name}</td>
                                                 <td>{row.variety}</td>
                                                 <td>{row.quantity}</td>

@@ -30,8 +30,9 @@ function LoginForm() {
 
         await axios.post('http://localhost:8000/api/login', formData)
         .then((response) => {
+            console.log(response.data)
             localStorage.setItem('token', response.data.token);
-            navigate('/order/list')
+            navigate('/adminpage')
         })
         .catch((error) => {
             setValidation(error.response.data);
@@ -65,11 +66,6 @@ function LoginForm() {
                 <div classname="invalid-feedback">
                     Masukan password
                 </div>
-            </div>
-            <div className='form-group form-check mb-2'>
-                <input type="checkbox" className='form-check-input'></input> 
-                <label htmlFor='check' className='form-check-label'>Remember me</label>
-                 
             </div>
             <button type='submit' className='btn btn-success block w-100 mt-2'>LOGIN</button>
             </form>
