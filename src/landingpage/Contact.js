@@ -26,7 +26,7 @@ function Contact (){
           <div className="row section-head">
             <div className="two columns header-col">
               <h1>
-                <span>Get In Touch</span>
+                <span>Hubungi Kami</span>
               </h1>
             </div>
 
@@ -85,17 +85,11 @@ function Contact (){
                     </div>
                     <div>
                     <button className="submit">Submit</button>
-                    <span id="image-loader">
-                      <img alt="" src="images/loader.gif" />
-                    </span>
+                    
                   </div>
                   </fieldset>
               </form>
-              <div id="message-warning"> Error boy</div>
-              <div id="message-success">
-                <i className="fa fa-check"></i>Your message was sent, thank you!
-                <br />
-              </div>      
+              
     </Container>
       </section>
       </>
