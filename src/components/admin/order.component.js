@@ -4,7 +4,7 @@ import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
 import Navbar from './navbar.admin';
-import { Row, Col } from "react-bootstrap";
+import { Row, Col, Table, Container } from "react-bootstrap";
 
 
 export default function List() {
@@ -53,21 +53,22 @@ export default function List() {
           })
     }
 
+
     
    
 
 
     return (
         <>
-    <Navbar />
+    <section className='table'>
+       
     <br />
-      <div className="container">
-          <div className="row">
-            <div className="col-9">
-                <div className="card card-body">
-                    <div className="table-responsive">
-                        <table className="table table-bordered mb-0 text-center">
-                            <thead className='position: sticky; top: 0; z-index: 1;'>
+    <div className="col-12">
+    <div className="card border-0 rounded shadow-sm">
+        <div className='card-body'>
+        <table >
+        <div>
+                            <thead>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pembeli</th>
@@ -94,7 +95,8 @@ export default function List() {
                                                 <td>{row.variety}</td>
                                                 <td>{row.quantity}</td>
                                                 <td>{row.to}</td>
-                                                <td>{row.status} </td>
+                                                <td>{row.status}
+                                                </td>
                                                 <td>
                                                     <Link to={`/order/edit/${row.id}`} className='btn btn-success me-2'>
                                                         Edit
@@ -108,12 +110,14 @@ export default function List() {
                                     )
                                 }
                             </tbody>
+                            </div>
                         </table>
-                    </div>
-                </div>
-            </div>
-          </div>
-      </div>
+
+                        </div>
+                        </div>
+                        
+     </div>
+      </section>
       </>
     )
 }

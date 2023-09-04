@@ -41,6 +41,7 @@
     "react-scripts": "5.0.1",
     "sweetalert2": "^11.7.20",
     "typescript": "^5.1.6",
+    "use-history": "^1.4.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
