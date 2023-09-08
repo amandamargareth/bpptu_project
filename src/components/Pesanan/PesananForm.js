@@ -39,7 +39,7 @@ export default function CreateOrder() {
         icon:"success",
         text:data.message
       })
-      navigate("/order/list")
+      navigate("/")
     }).catch(({response})=>{
       if(response.status===422){
         setValidationError(response.data.errors)

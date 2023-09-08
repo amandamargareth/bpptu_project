@@ -82,6 +82,7 @@ p.danger {
 	color: red;
 }
 /************ Navbar Css ************/
+
 nav.navbar {
   padding: 18px 0;
   position: fixed;
@@ -235,7 +236,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 0;
   padding: 260px 0 100px 0;
   /* background-image: url('./assets/img/banner-bg.png'); */
-  background: linear-gradient(90.21deg, rgba(194, 240, 207, 0.991) -5.91%, rgb(198, 207, 236) 111.58%);
+  background: #d0edcf);
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
