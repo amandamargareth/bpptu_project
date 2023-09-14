@@ -4,15 +4,29 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 
 function Stocks() {
-    const [orders, setOrders] = useState([])
+  const [stocks, setStocks] = useState({});
+
 
     useEffect(()=>{
-        fetchOrders() 
+        fetchStocks() 
     },[])
 
-    const fetchOrders = async () => {
-        await axios.get(`http://localhost:8000/api/orders`).then(({data})=>{
-            setOrders(data)
+    const fetchStocks = async () => {
+        await axios.get(`http://localhost:8000/api/stocks`).then(({data})=>{
+            setStocks(data)
+        })
+    }
+    
+    
+    const [actions, setActions] = useState([])
+
+    useEffect(()=>{
+        fetchActions() 
+    },[])
+
+    const fetchActions = async () => {
+        await axios.get(`http://localhost:8000/api/actions`).then(({data})=>{
+            setActions(data)
         })
     }
     return (
@@ -31,8 +45,19 @@ function Stocks() {
               <div className="nine columns main-col">
               <div className="row item">
                 <div className="twelve columns">
-                <h5>DOC Ayam Sentul : 2000 Ekor</h5>
-                <h5>DOD Itik Rambon : 700 Ekor</h5>
+                <div>  {
+                                    stocks.length > 0 && (
+                                        stocks.map((row, index)=>(
+                                            <tr key={index}>
+                                              <li>{row.stock_name} :   <b>{row.stock_quantity}</b> ekor
+                                              </li>
+                                              
+                                                
+                                                
+                                            </tr>
+                                        ))
+                                    )
+                                }</div>
                 </div>
               </div>
             </div>
@@ -72,8 +97,8 @@ function Stocks() {
                             </thead>
                             <tbody>
                                 {
-                                    orders.length > 0 && (
-                                        orders.map((row, index)=>(
+                                    actions.length > 0 && (
+                                        actions.map((row, index)=>(
                                             <tr key={index}>
                                                 <td>{index+1}</td>
                                                 <td>{row.name}</td>

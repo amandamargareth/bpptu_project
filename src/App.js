@@ -15,6 +15,7 @@ import Adminpage  from "./components/admin/admin"
 import ListStock from "./components/admin/stock.admin";
 import CreateProduct from "./components/product/create.component";
 import EditForm from "./components/Pesanan/editform";
+import CreateStock from "./components/admin/formstock";
 import "./App.css"
 
 
@@ -37,6 +38,8 @@ function App() {
             <Route path="/stock" element={<Stock />} />
             <Route path="/dashboard/contact.dashboard" element={<Contact />} />
             <Route path="/dashboard/footer.dashboard" element={<Footer />} />
+            <Route path="/adminstock" element={<CreateStock />} />
+
             
             
             

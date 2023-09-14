@@ -75,11 +75,11 @@ function Banner(){
               </div>}
             </TrackVisibility>
           </Col>
-          <Col xs={12} md={6} xl={5}>
+          <Col xs={12} md={6} xl={4}>
             <TrackVisibility>
               {({ isVisible }) =>
                 <div className={isVisible ? "animate__animated animate__zoomIn" : ""}>
-                  <img src={headerImg} alt="Header Img"/>
+                  <img width={500} height={500} src={headerImg} alt="Header Img"/>
                 </div>}
             </TrackVisibility>
           </Col>

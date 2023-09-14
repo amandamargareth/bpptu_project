@@ -1,63 +1,29 @@
-import React, { Component } from "react";
-import Fade from "react-reveal";
+import { Container, Row, Col } from "react-bootstrap";
+import logo from "../assets/img/logo.svg";
+import navIcon1 from "../assets/img/nav-icon1.svg";
+import navIcon2 from "../assets/img/nav-icon2.svg";
+import navIcon3 from "../assets/img/nav-icon3.svg";
 
-
-function Footer(){
-    return (
-    
-    <footer>
-        <div className="footer">
-          <Fade bottom>
-            <div className="twelve columns">
-              <ul className="social-links">
-              &nbsp;
-              &nbsp;
-              <a href="https://instagram.com/dkpp_jabar"><i className="fa fa-instagram"></i></a>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-
-              <a href="https://www.facebook.com/dkpp.jawabarat"><i className="fa fa-facebook"></i></a>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              <a href="https://twitter.com/dkpp_jabar"><i className="fa fa-twitter"></i></a>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              <a href="https://youtube.com/@DKPPJABAR"><i className="fa fa-youtube"></i></a>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              <a href="https://dkpp.jabarprov.go.id/"><i className="fa fa-globe"></i></a>
-              &nbsp;
-              &nbsp;
-              &nbsp;
-              <a href="https://dkpp@jabarprov.go.id"><i className="fa fa-envelope"></i></a>
-             
-              
-              
-                </ul>
-
-              <ul className="copyright">
-                <li>&copy; Copyright 2023</li>
-                <li>
-                  Design by{" "}
-                  <a title="Styleshout" href="http://puskomketapa.jabarprov.go.id">
-                    PUSKOM DKPP JABAR
-                  </a>
-                </li>
-              </ul>
+const Footer = () => {
+  return (
+    <footer className="footer">
+      <Container>
+        <Row className="align-items-center">
+          <Col size={12} sm={6}>
+            <img src={logo} alt="Logo" />
+          </Col>
+          <Col size={12} sm={6} className="text-center text-sm-end">
+            <div className="social-icon">
+              <a href="#"><img src={navIcon1} alt="Icon" /></a>
+              <a href="#"><img src={navIcon2} alt="Icon" /></a>
+              <a href="#"><img src={navIcon3} alt="Icon" /></a>
             </div>
-          </Fade>
-
-          <div id="go-top">
-            <a className="smoothscroll" title="Back to Top" href="#home">
-              <i className="icon-up-open"></i>
-            </a>
-          </div>
-        </div>
-      </footer>
-    );
+            <p>Copyright 2022. All Rights Reserved</p>
+          </Col>
+        </Row>
+      </Container>
+    </footer>
+  )
 }
+
 export default Footer;

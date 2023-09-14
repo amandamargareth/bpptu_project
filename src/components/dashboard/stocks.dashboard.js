@@ -5,15 +5,15 @@ import axios from 'axios';
 import { useEffect, useState } from "react";
 
 export default function Stocks() {
-    const [proses, setProses] = useState([])
+    const [order, setOrder] = useState([])
 
     useEffect(()=>{
-        fetchProses() 
+        fetchOrder() 
     },[])
 
-    const fetchProses = async () => {
-        await axios.get(`http://localhost:8000/api/proses`).then(({data})=>{
-            setProses(data)
+    const fetchOrder = async () => {
+        await axios.get(`http://localhost:8000/api/actions`).then(({data})=>{
+            setOrder(data)
         })
     }
    
@@ -77,8 +77,8 @@ export default function Stocks() {
                             </thead>
                             <tbody>
                                 {
-                                    proses.length > 0 && (
-                                        proses.map((row, key)=>(
+                                    order.length > 0 && (
+                                        order.map((row, key)=>(
                                             <tr key={key}>
                                                 <td>{row.id}</td>
                                                 <td>{row.name}</td>

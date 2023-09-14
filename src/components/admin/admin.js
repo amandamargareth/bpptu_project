@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router';
 import axios from 'axios';
 
 import List from './order.component';
+import ListStock from './stock.admin';
 
 
 function Dashboard() {
@@ -83,6 +84,7 @@ function Dashboard() {
             </div>
         </div>
         <List />
+        <ListStock />
         </>
     )
 

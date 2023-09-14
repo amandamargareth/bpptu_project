@@ -55,8 +55,6 @@ export default function CreateOrder() {
     <div className="container">
   <div className="row justify-content-center">
     <div className="col-12 col-sm-12 col-md-12">
-      <div className="card">
-        <div className="card-body">
           <h4 className="card-title">Form Pesanan</h4>
           <hr />
           <div className="form-wrapper">
@@ -197,7 +195,5 @@ export default function CreateOrder() {
         </div>
       </div>
     </div>
-  </div>
-</div>
   )
 }

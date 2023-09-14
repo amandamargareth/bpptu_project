@@ -53,10 +53,7 @@ a:hover {
   text-decoration: none;
 }
 
-img {
-  width: 100%;
-  height: auto;
-}
+
 
 button {
   border: 0;
@@ -236,7 +233,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 0;
   padding: 260px 0 100px 0;
   /* background-image: url('./assets/img/banner-bg.png'); */
-  background: #d0edcf);
+  background: #76a276;
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -307,7 +304,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
   margin-top: 0;
   padding: 100px 0 100px 0;
   /* background-image: url('./assets/img/stock-bg.png'); */
-  background: linear-gradient(90.21deg, rgb(198, 207, 236) 111.58%, rgba(194, 240, 207, 0.991) -5.91%);
+  background: #ffffff;
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;

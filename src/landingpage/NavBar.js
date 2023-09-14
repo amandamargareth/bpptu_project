@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Navbar, Nav, Container } from "react-bootstrap";
-import logo from '../assets/img/jatiwangi.png';
+import logo from '../assets/img/logo_remove.png';
 import { HashLink } from 'react-router-hash-link';
 
 function NavBar(){
@@ -30,7 +30,7 @@ function NavBar(){
       <Navbar expand="md" className={scrolled ? "scrolled" : ""}>
         <Container>
           <Navbar.Brand  aria-controls="basic-navbar-nav" href="/">
-            <img width="50px" src={logo} alt="Logo" /> 
+            <img width={50} height={50} src={logo} alt="Logo" /> 
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav">
             <span className="navbar-toggler-icon"></span>

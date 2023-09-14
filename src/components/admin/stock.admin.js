@@ -22,6 +22,38 @@ export default function ListStock() {
         })
     }
     
+    const deleteStock = async (id) => {
+        const isConfirm = await Swal.fire({
+            title: 'Are you sure?',
+            text: "You won't be able to revert this!",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Yes, delete it!'
+          }).then((result) => {
+            return result.isConfirmed
+          });
+
+          if(!isConfirm){
+            return;
+          }
+
+          await axios.delete(`http://localhost:8000/api/stocks/${id}`).then(({data})=>{
+            Swal.fire({
+                icon:"success",
+                text:data.message
+            })
+            fetchStocks()
+          }).catch(({response:{data}})=>{
+            Swal.fire({
+                text:data.message,
+                icon:"error"
+            })
+          })
+    }
+
+    
     
    
 
@@ -41,6 +73,7 @@ export default function ListStock() {
                                     <th>No</th>
                                     <th>Nama Jenis</th>
                                     <th>Jumlah</th>
+                                    <th>Action</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,6 +84,14 @@ export default function ListStock() {
                                                 <td>{row.id}</td>
                                                 <td>{row.stock_name}</td>
                                                 <td>{row.stock_quantity}</td>
+                                                <td>
+                                                    <Link to={`/stock/edit/${row.id}`} className='btn btn-success me-2'>
+                                                        Edit
+                                                    </Link>
+                                                    <Button variant="danger" onClick={()=>deleteStock(row.id)}>
+                                                        Delete
+                                                    </Button>
+                                                </td>
                                             </tr>
                                         ))
                                     )
