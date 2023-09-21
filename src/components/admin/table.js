@@ -1,26 +1,14 @@
-import React, { Component } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import axios from 'axios';
-import { useEffect, useState } from "react";
+import React from "react";
+import axios from "axios";
 import { Box, Button, Grid, Paper } from "@mui/material";
 import MUIDataTable from "mui-datatables";
+import { useState, useEffect } from "react";
 import moment from "moment/moment";
 
-function Stocks() {
-  const [stocks, setStocks] = useState({});
 
 
-    useEffect(()=>{
-        fetchStocks() 
-    },[])
 
-    const fetchStocks = async () => {
-        await axios.get(`http://localhost:8000/api/stocks`).then(({data})=>{
-            setStocks(data)
-        })
-    }
-    
-    
+function Tabel(){
     const [orders, setOrders] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
   const [isLogin, setIsLogin] = useState(true);
@@ -56,11 +44,11 @@ function Stocks() {
         { name: 'quantity', label: 'TOTAL EKOR', options: { setCellProps: () => ({ style: { whiteSpace: "nowrap"} })}},
         { name: 'to', label: 'TUJUAN PEMBELIAN', options: { setCellProps: () => ({ style: { whiteSpace: "nowrap"} })}},
       ];
-    return (
-      <>
-      <section className="stock" id="stock">
-      
-      <Grid container component="main">
+
+      return (
+        <>
+        <Box height={100} />
+         <Grid container component="main">
           <Grid
             item
             xs={12}
@@ -80,6 +68,7 @@ function Stocks() {
                 title={"WAITING LIST"}
                 data={orders}
                 columns={columns}
+                style={{ backgroundColor: "green"}}
                 options={{
                     tableId:"actions",
                   selectableRows: 'none',
@@ -91,55 +80,9 @@ function Stocks() {
               />
             </Box>
           </Grid>
-          <Grid
-            item
-            xs={12}
-            md={4}
-           
-          >
-        <Box
-        component={Paper}
-        sx={{
-          py: 8,
-          px: 4,
-          mt: 8,
-          mr: 4,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
-        }}>
-        <h1>
-                    <span>Persediaan</span>
-                  </h1>
-                  <div className="nine columns main-col">
-              <div className="row item">
-                <div className="twelve columns">
-                <div>  {
-                                    stocks.length > 0 && (
-                                        stocks.map((row, index)=>(
-                                            <tr key={index}>
-                                              <li>{row.stock_name} :   <b>{row.stock_quantity}</b> ekor
-                                              </li>
-                                              
-                                                
-                                                
-                                            </tr>
-                                        ))
-                                    )
-                                }</div>
-                </div>
-              </div>
-            </div>
-        </Box>
-      </Grid>
           </Grid>
-          
-          
-        
-      </section>
-      </>
-      
-    );
-  }
-export default Stocks;
+        </>
+      )
+}
 
+export default Tabel;

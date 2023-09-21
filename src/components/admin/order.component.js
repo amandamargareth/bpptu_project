@@ -60,15 +60,16 @@ export default function List() {
 
     return (
         <>
-    <section className='table'>
-       
-    <br />
-    <div className="col-12">
-    <div className="card border-0 rounded shadow-sm">
-        <div className='card-body'>
-        <table >
+    <div className="container" style={{ marginTop: "35px" }}>
+            <div className="row justify-content-center">
+                <div className="col-md-12">
+                    <div className="card border-0 rounded shadow-sm">
+                        
+        <div className='card card-body'>
+        <div className="table-responsive">
+        <table e className="table table-bordered mb-0 text-center">
         <div>
-                            <thead>
+                            <thead className='position: sticky; top: 0; z-index: 1;'>
                                 <tr>
                                     <th>No</th>
                                     <th>Nama Pembeli</th>
@@ -113,12 +114,13 @@ export default function List() {
                             </div>
                         </table>
 
-
+                        </div>
                         </div>
                         </div>
                         
      </div>
-      </section>
+                </div>
+            </div>
       </>
     )
 }

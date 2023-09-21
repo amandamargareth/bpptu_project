@@ -4,6 +4,7 @@ import Slide from "react-reveal";
 import axios from 'axios';
 import { useEffect, useState } from "react";
 
+
 export default function Stocks() {
     const [order, setOrder] = useState([])
 
@@ -16,8 +17,8 @@ export default function Stocks() {
             setOrder(data)
         })
     }
-   
-    
+
+
 
     return (
       <>
@@ -47,6 +48,7 @@ export default function Stocks() {
               </div>
             
           </Container>
+        
         <Container fluid='md'>
         <div className="container mt-5" >
                 <div className="card card-body">
@@ -101,6 +103,7 @@ export default function Stocks() {
         </div>
         </div>
         </Container>
+        
 
         </Slide>
       </section>

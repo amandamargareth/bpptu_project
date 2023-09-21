@@ -65,7 +65,7 @@ function Banner(){
               <div className={isVisible ? "animate__animated animate__fadeIn" : ""}>
                 <span className="tagline">BPPT Unggas Jatiwangi</span>
                 <h1> <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
-                  <p>Sistem Informasi Pembelian</p>
+                  <p>Sistem Informasi Pembelian DOC/DOD BPPTU</p>
                   <button>
                   <Link to="/OrderForm" className="btn project-btn">
                   Pesan <ArrowRightCircle size={25} />

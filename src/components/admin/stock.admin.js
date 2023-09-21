@@ -5,12 +5,14 @@ import axios from 'axios';
 import Swal from 'sweetalert2'
 import Navbar from './navbar.admin';
 import { Row, Col } from "react-bootstrap";
+import { Box } from '@mui/material';
 
 
 export default function ListStock() {
 
     
     const [stocks, setStocks] = useState([])
+    
 
     useEffect(()=>{
         fetchStocks() 
@@ -60,11 +62,12 @@ export default function ListStock() {
 
     return (
         <>
-
+    <Box height={100} />
     <br />
-      <div className="container">
-          <div className="row">
-            <div className="col-9">
+      <div className="container" style={{ marginTop: "50px" }}>
+            <div className="row justify-content-center">
+                <div className="col-md-12">
+                    <div className="card border-0 rounded shadow-sm">
                 <div className="card card-body">
                     <div className="table-responsive">
                         <table className="table table-bordered mb-0 text-center">
@@ -88,9 +91,6 @@ export default function ListStock() {
                                                     <Link to={`/stock/edit/${row.id}`} className='btn btn-success me-2'>
                                                         Edit
                                                     </Link>
-                                                    <Button variant="danger" onClick={()=>deleteStock(row.id)}>
-                                                        Delete
-                                                    </Button>
                                                 </td>
                                             </tr>
                                         ))
@@ -103,6 +103,8 @@ export default function ListStock() {
             </div>
           </div>
       </div>
+      </div>
+      <br />
       </>
     )
 }
