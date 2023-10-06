@@ -16,13 +16,13 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import HomeIcon from '@mui/icons-material/Home';
-import PersonAddAltIcon from '@mui/icons-material/PersonAddAlt';
-import Tabel from './table'
+import ViewListIcon from '@mui/icons-material/ViewList';import Inventory2Icon from '@mui/icons-material/Inventory2';
+import Dashboard from './dashboard'
 import ListStock from './stock.admin';
 import logo from '../../assets/img/logo_remove.png'
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router';
-import axios from 'axios';
+import React, { useState} from 'react';
+import ListOrder from './stock.admin'
+import Order from './order';
 
 const drawerWidth = 240;
 
@@ -92,58 +92,6 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 );
 
 export default function MiniDrawer() {
-  const [user, setUser] = useState({});
-
-  //define history
-  const navigate = useNavigate();
-
-  //token
-  const token = localStorage.getItem("token");
-
-  //function "fetchData"
-  const fetchData = async () => {
-
-      //set axios header dengan type Authorization + Bearer token
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      //fetch user from Rest API
-      await axios.get('http://localhost:8000/api/user')
-      .then((response) => {
-
-          //set response user to state
-          setUser(response.data);
-      })
-  }
-
-  //hook useEffect
-  useEffect(() => {
-
-      //check token empty
-      if(!token) {
-
-          //redirect login page
-          navigate('/login');
-      }
-      
-      //call function "fetchData"
-      fetchData();
-  }, []);
-
-  //function logout
-  const logoutHanlder = async () => {
-
-      //set axios header dengan type Authorization + Bearer token
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-      //fetch Rest API
-      await axios.post('http://localhost:8000/api/logout')
-      .then(() => {
-
-          //remove token from localStorage
-          localStorage.removeItem("token");
-
-          //redirect halaman login
-          navigate('/login');
-      });
-  };
 
   const theme = useTheme();
   const [open, setOpen] = useState(false);
@@ -210,12 +158,12 @@ export default function MiniDrawer() {
             </ListItem>
         </List>
         <List>
-         <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>setMenuData("Add User")}>
+         <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>setMenuData("Data Stock")}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
+                  px: 2.5
                 }}
               >
                 <ListItemIcon
@@ -225,30 +173,40 @@ export default function MiniDrawer() {
                     justifyContent: 'center',
                   }}
                 >
-                  <PersonAddAltIcon />
+                  <Inventory2Icon />
                 </ListItemIcon>
-                <ListItemText primary="Add User" sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary="Data Stock" sx={{ opacity: open ? 1 : 0 }} />
+              </ListItemButton>
+            </ListItem>
+        </List>
+        <List>
+         <ListItem disablePadding sx={{ display: 'block' }} onClick={()=>setMenuData("Data Pesanan")}>
+              <ListItemButton
+                sx={{
+                  minHeight: 48,
+                  justifyContent: open ? 'initial' : 'center',
+                  px: 2.5
+                }}
+              >
+                <ListItemIcon
+                  sx={{
+                    minWidth: 0,
+                    mr: open ? 3 : 'auto',
+                    justifyContent: 'center',
+                  }}
+                >
+                  <ViewListIcon />
+                </ListItemIcon>
+                <ListItemText primary="Data Pesanan" sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
         </List>
         <Divider />
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-      <div className="container" style={{ marginTop: "50px" }}>
-            <div className="row justify-content-center">
-                <div className="col-md-12">
-                    <div className="card border-0 rounded shadow-sm">
-                        <div className="card-body">
-                            SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
-                            <hr />
-                            <button onClick={logoutHanlder} className="btn btn-md btn-danger">LOGOUT</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        {menudata == "Home" && <Tabel />}
-        {menudata == "Add User" && <ListStock />}
+        {menudata == "Home" && <Dashboard />}
+        {menudata == "Data Stock" && <ListStock />}
+        {menudata == "Data Pesanan" && <Order />}
       </Box>
     </Box>
   );

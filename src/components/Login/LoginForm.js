@@ -54,10 +54,10 @@ function LoginForm() {
                         </div>
                     )
                 }
-                <label htmlFor='email' className='form-label' >Username</label>
+                <label htmlFor='email' className='form-label' >Email</label>
                 <input type="text" className='form-control' required value={email} onChange={(e) => setEmail(e.target.value)}></input>
                 <div classname="invalid-feedback">
-                    Masukan email atau username
+                    Masukan email 
                 </div>
             </div>
             <div className='form-group was-validated mb-2'>

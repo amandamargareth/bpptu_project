@@ -3,9 +3,10 @@ import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button'
 import axios from 'axios';
 import Swal from 'sweetalert2'
-import Navbar from './navbar.admin';
+import Navbar from './dashboard';
 import { Row, Col } from "react-bootstrap";
 import { Box } from '@mui/material';
+// import DrawerSize from './sidebar'
 
 
 export default function ListStock() {
@@ -62,9 +63,11 @@ export default function ListStock() {
 
     return (
         <>
-    <Box height={100} />
+          {/* <DrawerSize /> */}
+    <Box height={10} />
     <br />
       <div className="container" style={{ marginTop: "50px" }}>
+        <h2>Data Stok</h2>
             <div className="row justify-content-center">
                 <div className="col-md-12">
                     <div className="card border-0 rounded shadow-sm">

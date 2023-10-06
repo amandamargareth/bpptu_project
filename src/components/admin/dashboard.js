@@ -9,7 +9,7 @@ import axios from 'axios';
 
 import List from './order.component';
 import ListStock from './stock.admin';
-import DrawerSize from './sidebar';
+// import DrawerSize from './sidebar';
 import Box from '@mui/material/Box';
 
 
@@ -71,9 +71,9 @@ function Dashboard() {
 
     return (
         <>
-        <DrawerSize />
+        {/* <DrawerSize /> */}
         <Box height={10} />
-       {/* <div className="container" style={{ marginTop: "50px" }}>
+       <div className="container" style={{ marginTop: "50px" }}>
             <div className="row justify-content-center">
                 <div className="col-md-12">
                     <div className="card border-0 rounded shadow-sm">
@@ -85,7 +85,7 @@ function Dashboard() {
                     </div>
                 </div>
             </div>
-        </div> */}
+        </div>
         {/* // <List />
         // <ListStock /> */}
         </>

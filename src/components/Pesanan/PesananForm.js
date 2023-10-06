@@ -14,8 +14,8 @@ export default function CreateOrder() {
     const [address, setAddress] = useState("")
     const [city, setCity] = useState("")
     const [phone, setPhone] = useState("")
-    const [variety, setVariety] = useState("")
     const [quantity, setQuantity] = useState("")
+    const [variety, setVariety] = useState("")
     const [to, setTo] = useState("")
     const [status, setStatus] = useState("Belum Selesai")
     const [validationError,setValidationError] = useState({})
@@ -157,7 +157,6 @@ export default function CreateOrder() {
                         <option>DOC Ayam Sentul</option>
                         <option>DOD Itik Rambon</option>
                         </Form.Select>
-                       
                       
                     </Form.Group>
                   </Col>
