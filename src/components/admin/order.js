@@ -54,30 +54,45 @@ function Order(){
     
     
       
-        // const updateStatus = async (e) => {
-        //   e.preventDefault();
-      
-        //   const formData = new FormData()
-        //   formData.append('_method', 'PUT');
-        //   formData.append('status', status)
-      
-        //   await axios.post(`http://localhost:8000/api/orders/${id}`, formData).then(({data})=>{
-        //     Swal.fire({
-        //       icon:"success",
-        //       text:data.message
-        //     })
-        //     navigate("/adminpage")
-        //   }).catch(({response})=>{
-        //     if(response.status===422){
-        //       setValidationError(response.data.errors)
-        //     }else{
-        //       Swal.fire({
-        //         text:response.data.message,
-        //         icon:"error"
-        //       })
-        //     }
-        //   })
-        // }
+    const updateStatus = async (e, orderId) => {
+      e.preventDefault();
+    
+      const formData = new FormData();
+      formData.append('_method', 'PUT');
+      formData.append('status', 'Selesai');
+    
+      try {
+        // Kirim permintaan PUT ke server untuk mengubah status
+        const response = await axios.put(`http://localhost:8000/api/update-status/${orderId}`, formData);
+    
+        // Perbarui status pesanan dalam state jika permintaan berhasil
+        const updatedOrders = orders.map(order => {
+          if (order.id === orderId) {
+            return { ...order, status: 'Selesai' };
+          }
+          return order;
+        });
+    
+        // Perbarui state orders dengan status yang telah diperbarui
+        setOrders(updatedOrders);
+    
+        // Tampilkan pesan berhasil
+        Swal.fire({
+          icon: "success",
+          text: response.data.message,
+        });
+    
+        // Arahkan ke halaman "/adminpage"
+        navigate("/adminpage");
+      } catch (error) {
+        // Tangani kesalahan jika permintaan gagal
+        Swal.fire({
+          text: error.response.data.message,
+          icon: "error",
+        });
+      }
+    }
+    
 
   const deleteOrder = async (id) => {
     const isConfirm = await Swal.fire({
@@ -150,6 +165,7 @@ function Order(){
           filter: false,
           sort: false,
           customBodyRender: (value, tableMeta) => {
+            const orderId = tableMeta.rowData[10];
             return (
               <>
               {(() => {
@@ -168,7 +184,7 @@ if (value === "Selesai") {
 
   return (
 
-    <Button type="process" variant="contained" size="small" color="primary" endIcon={<Send />} onClick={deleteOrder} >
+    <Button type="process" variant="contained" size="small" color="primary" endIcon={<Send />} onClick={(e) => updateStatus(e, orderId)} >
     Proses
   </Button>
 
