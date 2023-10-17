@@ -18,6 +18,7 @@ import EditForm from "./components/Pesanan/editform";
 import CreateStock from "./components/admin/formstock";
 import EditStock from "./components/admin/editstock";
 import TabelCoba from "./components/admin/table";
+import FormCoba from "./components/Pesanan/formorder";
 import "./App.css"
 
 
@@ -43,6 +44,7 @@ function App() {
             <Route path="/dashboard/footer.dashboard" element={<Footer />} />
             <Route path="/adminstock" element={<CreateStock />} />
             <Route path="/tabel" element={<TabelCoba />} />
+            <Route path="/form" element={<FormCoba />} />
 
             
             

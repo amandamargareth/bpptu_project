@@ -23,6 +23,15 @@ import logo from '../../assets/img/logo_remove.png'
 import React, { useState} from 'react';
 import ListOrder from './stock.admin'
 import Order from './order';
+import Home from '../home';
+import LogoutIcon from '@mui/icons-material/Logout';
+
+import { useNavigate } from 'react-router';
+
+//import axios
+import axios from 'axios';
+
+
 
 const drawerWidth = 240;
 
@@ -95,7 +104,12 @@ export default function MiniDrawer() {
 
   const theme = useTheme();
   const [open, setOpen] = useState(false);
-  const [menudata, setMenuData] = useState("");
+  const [menudata, setMenuData] = useState("Home");
+
+  const navigate = useNavigate();
+
+    //token
+    const token = localStorage.getItem("token");
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -104,6 +118,22 @@ export default function MiniDrawer() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+  const logoutHanlder = async () => {
+
+    //set axios header dengan type Authorization + Bearer token
+    axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
+    //fetch Rest API
+    await axios.post('http://localhost:8000/api/logout')
+    .then(() => {
+
+        //remove token from localStorage
+        localStorage.removeItem("token");
+
+        //redirect halaman login
+        navigate('/login');
+    });
+};
 
   return (
     <Box sx={{ display: 'flex' }} >
@@ -122,10 +152,17 @@ export default function MiniDrawer() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" noWrap component="div">
+          <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
           <img width={50} height={50} src={logo} alt="Logo" /> 
            BPPT UNGGAS JATIWANGI
           </Typography>
+          <div >
+          <button onClick={logoutHanlder} className="btn btn-md btn-danger">
+            <LogoutIcon />
+            LOGOUT
+            </button>
+          </div>
+          
         </Toolbar>
       </AppBar>
       <Drawer variant="permanent" open={open}>

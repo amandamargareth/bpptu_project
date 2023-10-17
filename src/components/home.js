@@ -26,9 +26,9 @@ class Home extends React.Component {
             <section className="stock">
                 <Stock />
             </section>
-            <section className="contact">         
+            {/* <section className="contact">         
                 <Contact />
-            </section>
+            </section> */}
             <section className="footer">
                 <Footer />
             </section>

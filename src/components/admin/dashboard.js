@@ -80,7 +80,6 @@ function Dashboard() {
                         <div className="card-body">
                             SELAMAT DATANG <strong className="text-uppercase">{user.name}</strong>
                             <hr />
-                            <button onClick={logoutHanlder} className="btn btn-md btn-danger">LOGOUT</button>
                         </div>
                     </div>
                 </div>
