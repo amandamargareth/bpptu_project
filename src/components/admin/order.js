@@ -290,9 +290,10 @@ if (value === "Selesai") {
                 options={{
                     tableId:"actions",
                   selectableRows: 'none',
-                  download: false,
-                  print: false,
+                  download: true,
+                  print: true,
                   viewColumns: false,
+                  
 
                 }}
               />

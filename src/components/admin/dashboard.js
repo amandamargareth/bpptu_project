@@ -12,6 +12,8 @@ import ListStock from './stock.admin';
 // import DrawerSize from './sidebar';
 import Box from '@mui/material/Box';
 
+import TaskCount from './taskCount';
+
 
 function Dashboard() {
 
@@ -85,6 +87,7 @@ function Dashboard() {
                 </div>
             </div>
         </div>
+        <TaskCount />
         {/* // <List />
         // <ListStock /> */}
         </>

@@ -31,7 +31,7 @@ body {
   font-weight: 400;
   overflow-x: hidden;
   position: relative;
-  background-color: #e1efdf !important;
+  background: linear-gradient(90.21deg, rgba(5, 113, 41, 0.5) -5.91%, rgba(238, 244, 60, 0.5) 50%, rgba(255, 0, 0, 0.5) 100%)  !important;
   color: #000000 !important;
   font-family: 'Centra', sans-serif !important;
 }
@@ -390,7 +390,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 
 
 /* contact form */
-#contact form { margin-bottom: 30px; }
+/* #contact form { margin-bottom: 30px; }
 #contact label {
   font: 15px/24px 'opensans-bold', sans-serif;
   margin: 12px 0;
@@ -433,7 +433,7 @@ nav.navbar .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
 #contact button.submit:hover {
  color: #0D0D0D;
  background: #fff;
-}
+} */
 
 
 /************ Skills Css ************/

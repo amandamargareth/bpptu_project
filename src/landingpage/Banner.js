@@ -67,7 +67,7 @@ function Banner(){
                 <h1> <span className="txt-rotate" dataPeriod="1000" data-rotate='[ "Web Developer", "Web Designer", "UI/UX Designer" ]'><span className="wrap">{text}</span></span></h1>
                   <p>Sistem Informasi Pembelian DOC/DOD BPPTU</p>
                   <button>
-                  <Link to="/OrderForm" className="btn project-btn">
+                  <Link to="/form" className="btn project-btn">
                   Pesan <ArrowRightCircle size={25} />
                 </Link>
                   </button>

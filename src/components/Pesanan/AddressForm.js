@@ -1,17 +1,18 @@
-import React, { useEffect, useState } from "react";
-import Form from 'react-bootstrap/Form'
-import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
-import axios from 'axios';
+import React from "react";
+import axios from "axios";
+import { useState } from "react";
 import Swal from 'sweetalert2';
-import { useNavigate, useParams } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { Container, Alert, Box, Button, FormControl, FormHelperText, Grid, InputLabel, MenuItem, Select, TextField, Typography } from "@mui/material";
 import Paper from '@mui/material/Paper';
+
+import { JENIS_PEMBELIAN, KABUPATEN, TUJUAN_PEMBELIAN } from "./index";
 import CircularProgress from "@mui/material/CircularProgress";
 
 
-
-export default function EditUser() {
+function FormInput(){
+// const FormInput = () => {
+//   const [form, setForm] = useState({});
   const [isValidForm, setIsValidForm] = useState({
     nama: true,
     alamat: true,
@@ -23,87 +24,121 @@ export default function EditUser() {
   });
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  
+
+//   const handleSubmit = async (event) => {
+//     event.preventDefault();
+//     setIsLoading(true);
+
+//     try {
+//       if (form.name && form.address && form.city && form.phone && form.variety && form.quantity && form.to) {
+//         await axios.post(`http://localhost:8000/api/orders`, form);
+//         setIsLoading(false);
+//         setError(null);
+//         setForm({}); // Mengosongkan formulir setelah berhasil menyimpan
+//       } else {
+//         throw new Error("Data tidak lengkap atau tidak valid.");
+//       }
+//     } catch (error) {
+//       setError(error);
+//       setIsLoading(false);
+//     }
+//   };
+
+//   const handleChangeForm = (key, value) => {
+//     setForm({
+//       ...form,
+//       [key]: value,
+//     });
+//     if (value && value !== '') {
+//       setIsValidForm({
+//         ...isValidForm,
+//         [key]: true,
+//       });
+//     } else {
+//       setIsValidForm({
+//         ...isValidForm,
+//         [key]: false,
+//       });
+//     }
+//   }
+
+//   const validateInputNumberOnly = (key, value) => {
+//     const re = /^[0-9\b]+$/;
+//     if (value === '' || re.test(value)) {
+//       setForm({
+//         ...form,
+//         [key]: value,
+//       });
+
+//       if (value && value !== '') {
+//         setIsValidForm({
+//           ...isValidForm,
+//           [key]: true,
+//         });
+//       } else {
+//         setIsValidForm({
+//           ...isValidForm,
+//           [key]: false,
+//         });
+//       }
+//     }
+//   };
+
   const navigate = useNavigate();
 
-    const { id } = useParams()
+  const [name, setName] = useState("")
+  const [address, setAddress] = useState("")
+  const [city, setCity] = useState("")
+  const [phone, setPhone] = useState("")
+  const [quantity, setQuantity] = useState("")
+  const [variety, setVariety] = useState("")
+  const [to, setTo] = useState("")
+  const [status, setStatus] = useState("Belum Selesai")
+  const [validationError,setValidationError] = useState({})
 
-    const [name, setName] = useState("")
-    const [address, setAddress] = useState("")
-    const [city, setCity] = useState("")
-    const [phone, setPhone] = useState("")
-    const [variety, setVariety] = useState("")
-    const [quantity, setQuantity] = useState("")
-    const [to, setTo] = useState("")
-    const [status, setStatus] = useState("")
-    const [validationError,setValidationError] = useState({})
 
-    useEffect(()=>{
-        fetchOrder()
-    },[])
-    
-    const fetchOrder = async () => {
-    await axios.get(`http://localhost:8000/api/orders/${id}`).then(({data})=>{
-        const { name, address, city, phone, variety, quantity, to, status } = data.order
-        setName(name)
-        setAddress(address)
-        setCity(city)
-        setPhone(phone)
-        setVariety(variety)
-        setQuantity(quantity)
-        setTo(to)
-        setStatus(status)
-    }).catch(({response:{data}})=>{
-        Swal.fire({
-        text:data.message,
-        icon:"error"
-        })
-    })
-    }
-
-      const updateOrder = async (e) => {
-        e.preventDefault();
-    
-        const formData = new FormData()
-        formData.append('_method', 'PATCH');
-        formData.append('name', name)
-        formData.append('address', address)
-        formData.append('city', city)
-        formData.append('phone', phone)
-        formData.append('variety', variety)
-        formData.append('quantity', quantity)
-        formData.append('to', to)
-        formData.append('status', status)
-    
-        await axios.post(`http://localhost:8000/api/orders/${id}`, formData).then(({data})=>{
-          Swal.fire({
-            icon:"success",
-            text:data.message
-          })
-          navigate("/adminpage")
-        }).catch(({response})=>{
-          if(response.status===422){
-            setValidationError(response.data.errors)
-          }else{
-            Swal.fire({
-              text:response.data.message,
-              icon:"error"
-            })
-          }
-        })
-      }
+const createOrder = async (e) => {
+  e.preventDefault();
+  const formData = new FormData()
       
-      return(
-        <>
+  formData.append('name', name)
+  formData.append('address', address)
+  formData.append('city', city)
+  formData.append('phone', phone)
+  formData.append('variety', variety)
+  formData.append('quantity', quantity)
+  formData.append('to', to)
+  formData.append('status', status)
+  
+  await axios.post(`http://localhost:8000/api/orders`, formData).then(({data})=>{
+    Swal.fire({
+      icon:"success",
+      text:data.message
+    })
+    navigate("/")
+  }).catch(({response})=>{
+    if(response.status===422){
+      setValidationError(response.data.errors)
+    }else{
+      Swal.fire({
+        text:response.data.message,
+        icon:"error"
+      })
+      }
+  })
+}
+
+  return (
+    <>
       <Container component="main" maxWidth="md" sx={{ mb: 12 }}>
         <Paper variant="outlined" sx={{ my: { xs: 3, md: 9 }, p: { xs: 2, md: 3 } }}>
           <Typography component="h2" variant="h6" className="w-full text-center my-8">
-            FORM EDIT PEMBELIAN DOC/DOD BPPTU
+            FORM PEMBELIAN DOC/DOD BPPTU
           </Typography>
           <div className="px-5">
             {error && (<Alert severity="error" sx={{ width: '100%' }}>{error?.response?.data?.message || error?.response?.statusText || "Data Gagal disimpan" }</Alert>)}
           </div>
-          <Box component="form" noValidate onSubmit={updateOrder} className="w-full text-center">
+          <Box component="form" noValidate onSubmit={createOrder} className="w-full text-center">
             <Grid container component="main">
             <Grid item xs={12} md={6} lg={6} className="px-5">
             <TextField
@@ -276,5 +311,7 @@ export default function EditUser() {
         </Paper>
       </Container>
     </>
-      )
-};
+  )
+}
+
+export default FormInput;

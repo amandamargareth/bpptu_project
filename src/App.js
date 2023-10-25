@@ -3,7 +3,7 @@ import * as React from "react";
 import { BrowserRouter as Router , Routes, Route} from "react-router-dom";
 
 import EditProduct from "./components/product/edit.component";
-import LoginForm from "./components/Login/LoginForm";
+import LoginForm from "./components/Login/Login";
 import PesananForm from "./components/Pesanan/PesananForm";
 import Stock from "./components/dashboard/stocks.dashboard";
 import Contact from "./components/dashboard/contact.dashboard";
@@ -18,7 +18,8 @@ import EditForm from "./components/Pesanan/editform";
 import CreateStock from "./components/admin/formstock";
 import EditStock from "./components/admin/editstock";
 import TabelCoba from "./components/admin/table";
-import FormCoba from "./components/Pesanan/formorder";
+
+import StepOrder from "./components/Pesanan/AddressForm"
 import "./App.css"
 
 
@@ -44,7 +45,7 @@ function App() {
             <Route path="/dashboard/footer.dashboard" element={<Footer />} />
             <Route path="/adminstock" element={<CreateStock />} />
             <Route path="/tabel" element={<TabelCoba />} />
-            <Route path="/form" element={<FormCoba />} />
+            <Route path="/form" element={<StepOrder />} />
 
             
             

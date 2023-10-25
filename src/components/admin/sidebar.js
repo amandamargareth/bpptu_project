@@ -179,6 +179,7 @@ export default function MiniDrawer() {
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
+                  
                 }}
               >
                 <ListItemIcon
@@ -186,6 +187,10 @@ export default function MiniDrawer() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: menudata === "Home" ? 'success.main' : 'initial', // Atur warna ikon menjadi success jika item menu yang sesuai dipilih
+    '&:hover': {
+      color: 'success.main', // Ganti warna ikon saat tombol dihover
+    }
                   }}
                 >
                   <HomeIcon />
@@ -208,6 +213,9 @@ export default function MiniDrawer() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: menudata === "Data Stock" ? 'success.main' : 'initial', // Atur warna ikon menjadi success jika item menu yang sesuai dipilih
+    '&:hover': {
+      color: 'success.main', }
                   }}
                 >
                   <Inventory2Icon />
@@ -230,6 +238,9 @@ export default function MiniDrawer() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
+                    color: menudata === "Data Pesanan" ? 'success.main' : 'initial', // Atur warna ikon menjadi success jika item menu yang sesuai dipilih
+    '&:hover': {
+      color: 'success.main', }
                   }}
                 >
                   <ViewListIcon />
